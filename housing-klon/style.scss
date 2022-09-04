@@ -1,0 +1,543 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$p_font: 'Open Sans',
+sans-serif;
+$s_font:'Montserrat',
+sans-serif;
+;
+$p_color:#F44336;
+$s_color:#FFFFFF;
+$t_color:#FF9800;
+$f_color:rgba(0, 0, 0, 0.4);
+$l_color:rgba(0, 0, 0, 0.6);
+$w_color:rgb(255, 255, 255);
+$c_color:#444;
+$c1_color:rgb(180, 180, 180);
+
+/*mixin - extend*/
+
+@mixin border_bottom($bpx, $btype, $bcolor) {
+    border-bottom-width: $bpx;
+    border-bottom-style: $btype;
+    border-bottom-color: $bcolor;
+}
+
+.head {
+    color: $c_color;
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.buton {
+    padding: 13px;
+    width: 300px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.h1 {
+    font-family: $s_font;
+    color: $p_color;
+    font-weight: bold;
+    text-align: center;
+}
+
+.clearifx::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+body {
+    background-color: $s_color;
+    font-family: $p_font;
+    font-size: 14px;
+    .hr {
+        @include border_bottom(3px, solid, $p_color);
+        width: 100%;
+    }
+    //HEADER
+    header {
+        margin-top: 5px;
+        background-color: $s_color;
+        height: 65px;
+        font-family: $p_font;
+        //TOP-NAV
+        ul {
+            float: right;
+            margin-right: 150px;
+            a {
+                display: inline-block;
+                text-decoration: none;
+                padding: 10px;
+                margin-top: 10px;
+                font-weight: 600;
+                color: $p_color;
+                font-size: 15px;
+                &:hover {
+                    background-color: $p_color;
+                    color: $s_color;
+                    transition: all 0.5s;
+                }
+            }
+        }
+        .logo {
+            font-family: $s_font;
+            font-size: 23px;
+            float: left;
+            font-weight: bold;
+            margin-left: 120px;
+            margin-top: 10px;
+            color: $t_color;
+            i {
+                color: $p_color;
+                font-size: 30px;
+            }
+        }
+    }
+    //HOME
+    #home {
+        width: 100%;
+        position: relative;
+        height: 500px;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .intro {
+            background-color: $f_color;
+            position: absolute;
+            top: 0;
+            left: 55%;
+            height: 100%;
+            width: 45%;
+            color: $s_color;
+            text-align: center;
+            .btn {
+                background-color: $p_color;
+                color: $s_color;
+                @extend .buton;
+                border: none;
+                font-family: $s_font;
+                &:hover {
+                    background-color: $t_color;
+                    transition: all 0.5s;
+                }
+            }
+            .intro-text {
+                background-color: $l_color;
+                height: 150px;
+                width: 100%;
+                margin-top: 150px;
+                h2 {
+                    padding: 30px;
+                    font-weight: 300;
+                    font-family: $s_font;
+                    span {
+                        color: $t_color;
+                        font-size: 50px;
+                        letter-spacing: 5px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    //SERVİCES
+    .services {
+        @extend .head;
+        .hr {
+            @include border_bottom(2px, solid, $t_color);
+            width: 4%;
+            margin: 30px auto;
+        }
+        h1 {
+            @extend .h1;
+        }
+        p {
+            text-align: center;
+        }
+        .services-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+            .card {
+                width: 28%;
+                text-align: center;
+                border: 1px solid $c1_color;
+                padding: 40px;
+                margin: 20px;
+                transition: all 0.5s;
+                &:hover {
+                    transform: translate(0px, -10px);
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+                h2 {
+                    font-family: $s_font;
+                }
+                i {
+                    color: $t_color;
+                    font-size: 40px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+    //ABOUT US
+    .about {
+        @extend .head;
+        .hr {
+            @include border_bottom(2px, solid, $t_color);
+            width: 4%;
+            margin: 30px auto;
+        }
+        h1 {
+            @extend .h1;
+        }
+        .about-row {
+            display: flex;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            justify-content: space-around;
+            .about-img {
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+            .card {
+                width: 50%;
+                padding: 20px;
+            }
+            .about-content {
+                text-align: left;
+                line-height: 30px;
+                p {
+                    margin-top: 15px;
+                    &:first-child {
+                        font-weight: bold;
+                        color: black;
+                        font-size: 18px;
+                    }
+                }
+                .p2 {
+                    font-style: italic;
+                    font-size: 18px;
+                    font-weight: lighter;
+                }
+                i {
+                    color: $t_color;
+                }
+            }
+        }
+        .client-row {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-evenly;
+            .clients {
+                width: 15%;
+                img {
+                    filter: grayscale(100%);
+                    opacity: 0.6;
+                    display: block;
+                    width: 120px;
+                    height: auto;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    //PORTFOLLIO 
+    .portfolio {
+        padding: 50px 0px;
+        color: $s_color;
+        background-color: $p_color;
+        width: 100%;
+        margin: 30px auto;
+        text-align: center;
+        .hr {
+            @include border_bottom(2px, solid, $t_color);
+            width: 4%;
+            margin: 30px auto;
+        }
+        h1 {
+            @extend .h1;
+            color: $s_color;
+        }
+        p {
+            width: 90%;
+            margin: 30px auto;
+        }
+        .portfolio-content {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            .portfolio-img {
+                position: relative;
+                width: 25%;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    transition: all 0.5s;
+                }
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 100%;
+                    width: 100%;
+                    background-color: $f_color;
+                    display: none;
+                    transition: all 0.5s;
+                    .text {
+                        color: white;
+                        font-size: 20px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        text-align: center;
+                    }
+                    .hr {
+                        @include border_bottom(1px, solid, $w_color);
+                        width: 40%;
+                        margin: 10px auto;
+                        position: absolute;
+                        top: 70%;
+                        left: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                    }
+                }
+                &:hover .overlay {
+                    display: block;
+                }
+            }
+        }
+    }
+    .test {
+        @extend .head;
+        .hr {
+            @include border_bottom(2px, solid, $t_color);
+            width: 4%;
+            margin: 30px auto;
+        }
+        h1 {
+            @extend .h1;
+        }
+        .test-content {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-evenly;
+            .test-t {
+                border: 1px solid $c1_color;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                border-bottom-left-radius: 20px;
+                height: 150px;
+                text-align: center;
+                padding: 30px;
+                font-style: italic;
+            }
+            .card {
+                width: 23%;
+                .p2 {
+                    font-weight: bold;
+                    color: black;
+                    font-size: 18px;
+                    margin-top: 5px;
+                }
+                .p3 {
+                    color: $c1_color;
+                }
+            }
+        }
+    }
+    .pricing {
+        @extend .head;
+        .hr {
+            @include border_bottom(2px, solid, $t_color);
+            width: 4%;
+            margin: 30px auto;
+        }
+        h1 {
+            @extend .h1;
+        }
+        .pricing-content {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-evenly;
+            .card {
+                width: 30%;
+                box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                border-top: 2px solid $p_color;
+                hr {
+                    color: $c1_color;
+                    width: 80%;
+                    margin: 30px auto;
+                }
+                h2 {
+                    font-family: $s_font;
+                    font-weight: 400;
+                    font-size: 27px;
+                }
+                p {
+                    line-height: 30px;
+                }
+                h4 {
+                    color: $p_color;
+                    font-size: 50px;
+                    font-weight: 400;
+                }
+                .btn {
+                    @extend .buton;
+                    border: 1px solid $t_color;
+                    color: $t_color;
+                    &:hover {
+                        background-color: #F44336;
+                        color: $s_color;
+                        border: none;
+                        transition: all 0.5s;
+                    }
+                }
+            }
+        }
+    }
+    .our-team {
+        @extend .head;
+        .hr {
+            @include border_bottom(2px, solid, $t_color);
+            width: 4%;
+            margin: 30px auto;
+        }
+        h1 {
+            @extend .h1;
+        }
+        .our-team-content {
+            display: flex;
+            justify-content: space-evenly;
+            .card {
+                border: 2px solid $t_color;
+                width: 20%;
+                img {
+                    display: block;
+                    width: 90%;
+                    margin: 15px auto;
+                }
+                .social {
+                    display: flex;
+                    justify-content: space-evenly;
+                    margin: 20px auto;
+                    i {
+                        font-size: 18px;
+                        color: $c1_color;
+                        &:hover {
+                            color: $t_color;
+                        }
+                    }
+                }
+                p {
+                    margin-top: 10px;
+                    font-style: italic;
+                    color: $c1_color;
+                }
+            }
+        }
+    }
+    .contact {
+        @extend .head;
+        .hr {
+            @include border_bottom(2px, solid, $t_color);
+            width: 4%;
+            margin: 30px auto;
+        }
+        h1 {
+            @extend .h1;
+        }
+        .contact-content {
+            display: flex;
+            text-align: left;
+            justify-content: center;
+            .card {
+                width: 45%;
+                .sc {
+                    margin-top: 35px;
+                    font-family: $s_font;
+                    color: $c_color;
+                    .text {
+                        text-align: left;
+                        margin-left: 50px;
+                        p {
+                            display: inline-block;
+                        }
+                    }
+                    img {
+                        float: left;
+                    }
+                }
+            }
+            input,
+            textarea {
+                font-family: inherit;
+                display: block;
+                width: 100%;
+                margin: 30px auto;
+                padding: 15px;
+                border: 1px solid $c1_color;
+            }
+            button {
+                @extend .buton;
+                background-color: $t_color;
+                color: $s_color;
+                border: none;
+                float: right;
+                width: 100px;
+                &:hover {
+                    transition: all 0.5s;
+                    background-color: $p_color;
+                }
+            }
+        }
+        .map {
+            margin: 50px auto;
+        }
+    }
+    .footer {
+        position: relative;
+        height: 150px;
+        background-color: $c_color;
+        color: $s_color;
+        text-align: center;
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            p {
+                font-family: $s_font;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}
